@@ -1,5 +1,5 @@
 #!/bin/bash
 
-read -p 'Basha: '
+read -p 'Your Name = Basha '
 read name
 echo "Your Name = $name"
