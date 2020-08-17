@@ -6,8 +6,15 @@
 
 sample(){
     echo Hello World from Function
+    echo a = $a
 }
 
 # call the function 
 
+# Main program
+
 sample
+
+# Observations
+#1.Functions are always before main programs
+#2.
