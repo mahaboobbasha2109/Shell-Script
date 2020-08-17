@@ -1,4 +1,5 @@
 #!/bin/bash
 
-read -p 'Enter your Name: ' Name
+read -p 'Basha: '
+read name
 echo "Your Name = $name"
