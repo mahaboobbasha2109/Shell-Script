@@ -5,9 +5,10 @@
 # Declare function 
 
 sample(){
-    echo Hello World from Function
-    echo a = $a
-    b=20
+  a=30
+  echo Hello World from Function
+  echo a in Function = $a
+  b=20
 }
 
 # call the function 
@@ -15,7 +16,8 @@ sample(){
 # Main program
 a=10
 sample
-echo b= $b
+echo a in Main Program = $a
+echo b in Main Program = $b
 
 # Observations
 #1.Functions are always before main programs
