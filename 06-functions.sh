@@ -19,4 +19,5 @@ echo b= $b
 
 # Observations
 #1.Functions are always before main programs
-#2.
+#2.Variables in Main program can be accessed in function & Vice-Versa
+# 3. Variables from Main program can be overwriteen by function & Vice-Versa
