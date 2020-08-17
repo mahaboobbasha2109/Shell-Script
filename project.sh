@@ -52,7 +52,6 @@ payment() {
     echo "Installaing Payment Service"
 }
 
-
 case $1 in
 frontend)
  frontend
@@ -95,3 +94,5 @@ catalogue
 user
 shipping
 payment
+;;
+esac
