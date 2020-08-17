@@ -12,44 +12,79 @@
 # User
 # all
 
+Head() {
+    echo -e "\t$2  - \e[1;32mSUCCESS\e[0m"
+}
+
+stat() {
+    case $1 in
+    0)
+     echo -e "\t$2  - \e[1;31mSUCCESS\e[0m"
+     ;;
+     *)
+     echo -e "\t$2  - \e[1;31mSUCCESS\e[0m"
+     exit 1
+     ;;
+     esac
+}
+
 frontend() {
-     echo "Installaing Frontend Service"
+    Head "Installing Frontend Service"
+    yum install nginx -y &>>$LOG_FILE
+    Stat $? "Nginx Install\t\t"
+    curl -s -L -o /tmp/frontend.zip "https://dev.azure.com/DevOps-Batches/98e5c57f-66c8-4828-acd6-66158ed6ee33/_apis/git/repositories/65042ce1-fdc2-4472-9aa2-3ae9b87c1ee4/items?path=%2F&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=master&resolveLfs=true&%24format=zip&api-version=5.0&download=true"
+    Stat $? "Download Frontend Files" &>>$LOG_FILE
+
+    cd /usr/share/nginx/html
+    rm -rf *
+
+    unzip /tmp/frontend.zip &>>$LOG_FILE
+    Stat $? "Extract frontend files\t"
+
+    mv static/* .
+    rm -rf static README.md
+    mv localhost.conf /etc/nginx/nginx.conf
+
+    systemctl enable nginx &>>$LOG_FILE
+    systemctl start nginx &>>$LOG_FILE
+     Stat $? "Start Nginx\t\t"
+
 }
 
 mongodb() {
-    echo "Installaing MongoDB Service"
+    Head "Installaing MongoDB Service"
 }
 
 mysql() {
-     echo "Installaing MySQL Service"
+     Head "Installaing MySQL Service"
 }
 
 rabbitmq() {
-     echo "Installaing RabbitMQ Service"
+     Head "Installaing RabbitMQ Service"
 }
 
 redis() {
-    echo "Installaing Redis Service"
+    Head "Installaing Redis Service"
 }
 
 cart() {
-    echo "Installaing cart Service"
+    Head "Installaing cart Service"
 }
 
 catalogue() {
-    echo "Installaing Catalogue Service"
+    Head "Installaing Catalogue Service"
 }
 
 user() {
-    echo "Installaing User Service"
+    Head "Installaing User Service"
 }
 
 shipping() {
-    echo "Installaing Shipping Service"
+    Head "Installaing Shipping Service"
 }
 
 payment() {
-    echo "Installaing Payment Service"
+    Head "Installaing Payment Service"
 }
 
 case $1 in
