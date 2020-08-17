@@ -12,7 +12,7 @@ sample(){
 # call the function 
 
 # Main program
-
+a=10
 sample
 
 # Observations
